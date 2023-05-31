@@ -41,7 +41,7 @@ public class CommonMethods extends PageInitializers {
     }
 
 
-    public static void sentText(WebElement element,String text){
+    public static void sendText(WebElement element,String text){
         element.clear();
         element.sendKeys(text);
     }

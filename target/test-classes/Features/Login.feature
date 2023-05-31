@@ -1,5 +1,6 @@
 Feature: test the login functionality
 
+  @login
   Scenario: validate admin login
     #Given the user navigates to the url
     When user enters a valid email and password
@@ -32,15 +33,15 @@ Feature: test the login functionality
     Then the user is not logged in
 
 
-    @outline
+  @outline
   Scenario Outline:validate the wrong credentials error message
     When user enters the "<username>" ane "<password>"
     And clicks on Login Button
-    #Then user see a message "<errorMsg>"
+    Then user see a message "<expectedErrorMsg>"
     Examples:
-      | username | password | errorMsg           |
-      | admin    | ssdad    | invalidCredentials |
-      | admin2   | ssd      | invalidCredentials |
-      | admin3   | ssdad    | invalidCredentials |
+      | username | password    | expectedErrorMsg                 |
+      | admin    | ssdad       | Invalid credentials      |
+      |          |             | Username cannot be empty |
+      |          | Hum@nhrm123 | Username cannot be empty |
 
 

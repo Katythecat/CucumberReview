@@ -4,6 +4,7 @@ import Pages.LoginPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import utils.CommonMethods;
@@ -22,13 +23,8 @@ public class LoginSteps extends CommonMethods   {
     @When("user enters a valid email and password")
     public void user_enters_a_valid_email_and_password() {
 
-        //driver.findElement(By.id("txtUsername")).sendKeys(ConfigReader.getValueOfProp("username"));
-
-        sentText(login.usernameTextBox, ConfigReader.getValueOfProp("username"));
-
-        //driver.findElement(By.id("txtPassword")).sendKeys(ConfigReader.getValueOfProp("password"));
-
-        sentText(login.passwordTextBox,ConfigReader.getValueOfProp("password"));
+        sendText(login.usernameTextBox, ConfigReader.getValueOfProp("username"));
+        sendText(login.passwordTextBox,ConfigReader.getValueOfProp("password"));
 
     }
     @When("clicks on Login Button")
@@ -38,9 +34,14 @@ public class LoginSteps extends CommonMethods   {
     }
     @Then("the user is logged in")
     public void the_user_is_logged_in() {
-        //assertion that u are logged in
-        System.out.println("logged in");
 
+        String actualMsg=dashboard.welcomeText.getText();
+        String expected="Welcome Admin";
+
+        Assert.assertEquals(actualMsg,expected);
+
+        //we have only hard assert in cucumber
+        //.assertEquals and .assertTrue
 
     }
 
@@ -48,8 +49,8 @@ public class LoginSteps extends CommonMethods   {
     public void user_enters_a_username_and_password(String username, String password) {
         WebElement usernameTextBox = driver.findElement(By.id("txtUsername"));
         WebElement passwordTextBox = driver.findElement(By.id("txtPassword"));
-        sentText(usernameTextBox,username);
-        sentText(passwordTextBox,password);
+        sendText(usernameTextBox,username);
+        sendText(passwordTextBox,password);
     }
 
     @Then("the user is not logged in")
@@ -59,13 +60,19 @@ public class LoginSteps extends CommonMethods   {
 
     @When("user enters the {string} ane {string}")
     public void user_enters_the_ane(String username, String password) {
-        sentText(login.usernameTextBox,username );
-        sentText(login.passwordTextBox,password);
+        sendText(login.usernameTextBox,username );
+        sendText(login.passwordTextBox,password);
 
     }
     @Then("user see a message {string}")
-    public void user_see_a_message(String errorMsg) {
-        System.out.println(errorMsg);
+    public void user_see_a_message(String expectedErrorMsg) throws InterruptedException {
+        Thread.sleep(5000);
+        String actualError=login.errorLogin.getText();
+        Assert.assertEquals(actualError,expectedErrorMsg);
+
+
+
+
 
     }
 

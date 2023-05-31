@@ -10,7 +10,6 @@ public class LoginPage extends CommonMethods {
     @FindBy(id = "txtUsername")
     public WebElement usernameTextBox;
 
-
     @FindBy(id = "txtPassword")
     public WebElement passwordTextBox;
 
@@ -21,8 +20,13 @@ public class LoginPage extends CommonMethods {
     @FindBy(id = "welcome")
     public WebElement welcomeIcon;
 
+    @FindBy(xpath = "//span[@id='spanMessage']")
+    public WebElement errorLogin;
+
     @FindBy(xpath = "//a[text()='Logout']")
     public WebElement logoutLink;
+
+
 
     public LoginPage(){
         PageFactory.initElements(driver,this);
