@@ -3,6 +3,7 @@ package utils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import steps.PageInitializers;
@@ -20,8 +21,13 @@ public class CommonMethods extends PageInitializers {
         String browserType = ConfigReader.getValueOfProp("browserType");
         switch (browserType) {
             case "Chrome":
-                driver = new ChromeDriver();
-                break;
+                ChromeOptions ops = new ChromeOptions();
+                ops.addArguments("--no-sandbox");
+                ops.addArguments("--remote-allow-origins=*");
+                if (ConfigReader.getValueOfProp("Headless").equals("true")){
+                    ops.addArguments("--headless=new");
+                }
+                driver=new ChromeDriver(ops); break;
             case "Firefox":
                 driver = new FirefoxDriver();
                 break;

@@ -16,7 +16,7 @@ import static org.hamcrest.Matchers.equalTo;
 public class APIdemo {
 
     String baseURI=RestAssured.baseURI="http://hrm.syntaxtechs.net/syntaxapi/api";
-    String token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2ODU0NjIzMTksImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTY4NTUwNTUxOSwidXNlcklkIjoiNTUzMiJ9.QP_lc_lkT8cwFhq3Kyt0prSEc1ujA57dZr_th-rVaMc";
+    String token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2ODU1NDU5NzYsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTY4NTU4OTE3NiwidXNlcklkIjoiNTM3MiJ9.4-xlzLQZDfUkpm0zqCZVxRhjfPH-CSohZCQWgf5HC5o";
     static String employee_id;
 
     @Test
@@ -98,6 +98,23 @@ public class APIdemo {
 
         //verify with ham
         response.then().assertThat().body("Message",equalTo("Employee record Updated"));
+    }
+
+    @Test
+    public void dgetUpdateEmployee(){
+        RequestSpecification preparedRequest=given().
+                header("Content-Type","application/json").
+                header("Authorization",token).
+                queryParam("employee_id",employee_id);
+
+        Response response=preparedRequest.when().get("/getOneEmployee.php");
+        response.prettyPrint();
+        response.then().assertThat().statusCode(200);
+
+        //verify using hamcrest
+        String actual=response.jsonPath().getString("employee.employee_id");
+        Assert.assertEquals(actual,employee_id);
 
     }
+
 }
