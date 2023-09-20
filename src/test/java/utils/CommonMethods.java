@@ -22,12 +22,18 @@ public class CommonMethods extends PageInitializers {
         switch (browserType) {
             case "Chrome":
                 ChromeOptions ops = new ChromeOptions();
-                ops.addArguments("--no-sandbox");
-                ops.addArguments("--remote-allow-origins=*");
-                if (ConfigReader.getValueOfProp("Headless").equals("true")){
-                    ops.addArguments("--headless=new");
-                }
-                driver=new ChromeDriver(ops); break;
+                //ops.addArguments("--no-sandbox");
+               // ops.addArguments("--remote-allow-origins=*");
+                //if(ConfigReader.getValueOfProp("Headless").equals("true")){
+                    //ops.addArguments("--headless=new");
+               //}
+                //driver = new ChromeDriver(ops);
+                //break;
+                ops.setHeadless(true);
+                driver = new ChromeDriver(ops);
+                break;
+
+
             case "Firefox":
                 driver = new FirefoxDriver();
                 break;
@@ -53,6 +59,8 @@ public class CommonMethods extends PageInitializers {
     }
 
     public static void closeBrowser(){
-        driver.close();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }

@@ -10,7 +10,9 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/Features",
         glue = "steps",
         tags="@login",
-        dryRun = false
-)
-public class RunnerClass {
+        dryRun = false,
+        plugin={"pretty" , "html:target/cucumber.html",
+        "json:target/cucumber.json","rerun:target/failed.txt"})
+
+public class SmokeRunner {
 }
