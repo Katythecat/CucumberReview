@@ -82,7 +82,7 @@
                 <version>3.0.0</version>
                 <configuration>
                     <includes>
-                        <include>**/*Runner</include>
+                        <include>**/*SmokeRunner</include>
                     </includes>
                 </configuration>
             </plugin>
