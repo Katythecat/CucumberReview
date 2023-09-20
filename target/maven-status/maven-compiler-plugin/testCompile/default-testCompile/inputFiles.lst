@@ -1,6 +1,7 @@
 C:\Users\Wilasinee Ramirez\IdeaProjects\CucumberReview\src\test\java\utils\CommonMethods.java
 C:\Users\Wilasinee Ramirez\IdeaProjects\CucumberReview\src\test\java\utils\APIConstants.java
 C:\Users\Wilasinee Ramirez\IdeaProjects\CucumberReview\src\test\java\APIStepDefinitions\GenerateTokenSteps.java
+C:\Users\Wilasinee Ramirez\IdeaProjects\CucumberReview\src\test\java\runner\RegressionRunner.java
 C:\Users\Wilasinee Ramirez\IdeaProjects\CucumberReview\src\test\java\utils\APIPayloadConstants.java
 C:\Users\Wilasinee Ramirez\IdeaProjects\CucumberReview\src\test\java\runner\APIRunner.java
 C:\Users\Wilasinee Ramirez\IdeaProjects\CucumberReview\src\test\java\API\APIdemo.java
@@ -15,5 +16,6 @@ C:\Users\Wilasinee Ramirez\IdeaProjects\CucumberReview\src\test\java\Pages\Login
 C:\Users\Wilasinee Ramirez\IdeaProjects\CucumberReview\src\test\java\runner\SmokeRunner.java
 C:\Users\Wilasinee Ramirez\IdeaProjects\CucumberReview\src\test\java\utils\ExcelReader.java
 C:\Users\Wilasinee Ramirez\IdeaProjects\CucumberReview\src\test\java\utils\Constants.java
+C:\Users\Wilasinee Ramirez\IdeaProjects\CucumberReview\src\test\java\runner\FailedRunner.java
 C:\Users\Wilasinee Ramirez\IdeaProjects\CucumberReview\src\test\java\steps\PageInitializers.java
 C:\Users\Wilasinee Ramirez\IdeaProjects\CucumberReview\src\test\java\Pages\AddEmployPage.java

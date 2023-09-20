@@ -12,8 +12,10 @@ steps\Hooks.class
 steps\LoginSteps.class
 utils\ExcelReader.class
 Pages\DashboardPage.class
+runner\RegressionRunner.class
 steps\AddEmploySteps.class
 runner\SmokeRunner.class
 runner\APIRunner.class
 APIStepDefinitions\GenerateTokenSteps.class
 Pages\EmployeeListPage.class
+runner\FailedRunner.class

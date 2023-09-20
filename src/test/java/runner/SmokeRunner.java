@@ -11,8 +11,7 @@ import org.junit.runner.RunWith;
         glue = "steps",
         tags="@login",
         dryRun = false,
-        plugin={"pretty" , "html:target/cucumber.html",
-        "json:target/cucumber.json","rerun:target/failed.txt"})
+        plugin={"pretty" , "json:target/cucumber/report.json", "html:target/cucumber/report.html","rerun:target/failed.txt"})
 
 public class SmokeRunner {
 }
