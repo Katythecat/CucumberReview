@@ -35,7 +35,7 @@ public class CommonMethods extends PageInitializers {
                //}
                 //driver = new ChromeDriver(ops);
                 //break;
-                ops.setHeadless(true);
+                ops.addArguments("--headless");
                 driver = new ChromeDriver(ops);
                 break;
 
