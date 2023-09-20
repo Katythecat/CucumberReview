@@ -1,5 +1,6 @@
 package utils;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -27,6 +28,7 @@ public class CommonMethods extends PageInitializers {
         String browserType = ConfigReader.getValueOfProp("browserType");
         switch (browserType) {
             case "Chrome":
+                WebDriverManager.chromedriver().setup();
                 ChromeOptions ops = new ChromeOptions();
                 ops.addArguments("--no-sandbox");
                ops.addArguments("--remote-allow-origins=*");
