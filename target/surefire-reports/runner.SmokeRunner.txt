@@ -1,4 +1,16 @@
 -------------------------------------------------------------------------------
 Test set: runner.SmokeRunner
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.01 s -- in runner.SmokeRunner
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 3.107 s <<< FAILURE! -- in runner.SmokeRunner
+test the login functionality.validate admin login -- Time elapsed: 1.263 s <<< ERROR!
+java.lang.NoSuchMethodError: 'com.google.common.collect.ImmutableMap com.google.common.collect.ImmutableMap.of(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'
+	at org.openqa.selenium.chrome.AddHasCasting.getAdditionalCommands(AddHasCasting.java:37)
+	at org.openqa.selenium.chrome.ChromeDriver$ChromeDriverCommandExecutor.getExtraCommands(ChromeDriver.java:120)
+	at org.openqa.selenium.chrome.ChromeDriver$ChromeDriverCommandExecutor.<init>(ChromeDriver.java:115)
+	at org.openqa.selenium.chrome.ChromeDriver.generateExecutor(ChromeDriver.java:105)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:88)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:83)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:72)
+	at utils.CommonMethods.openBrowserAndLaunchApplication(CommonMethods.java:34)
+	at steps.Hooks.preConditions(Hooks.java:12)
+

@@ -1,6 +1,6 @@
 package utils;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -26,28 +26,28 @@ public class CommonMethods extends PageInitializers {
         ConfigReader.readProperties();
 
         String browserType = ConfigReader.getValueOfProp("browserType");
-        switch (browserType) {
-            case "Chrome":
-                WebDriverManager.chromedriver().setup();
-                ChromeOptions ops = new ChromeOptions();
-                ops.addArguments("--no-sandbox");
-               ops.addArguments("--remote-allow-origins=*");
-                if(ConfigReader.getValueOfProp("Headless").equals("true")){
-                    ops.addArguments("--headless=new");
-               }
-                driver = new ChromeDriver(ops);
-                break;
-               // ops.addArguments("--headless");
-               // driver = new ChromeDriver(ops);
-               // break;
+        if(browserType != null) {
+            switch (browserType) {
+                case "Chrome":
 
+                    ChromeOptions cp=new ChromeOptions();
+                    cp.setHeadless(true);
+                    driver = new ChromeDriver(cp);
+                    break;
 
-            case "Firefox":
-                driver = new FirefoxDriver();
-                break;
-            case "Edge":
-                driver = new EdgeDriver();
-                break;
+                case "Firefox":
+                    driver = new FirefoxDriver();
+                    break;
+                case "Edge":
+                    driver = new EdgeDriver();
+                    break;
+                default:
+                    System.out.println("Invalid browser type specified in config file.");
+                    break;
+            }
+
+        }else{
+            System.out.println("Failed to read browser from config file");
         }
         driver.get(ConfigReader.getValueOfProp("url"));
         driver.manage().window().maximize();
