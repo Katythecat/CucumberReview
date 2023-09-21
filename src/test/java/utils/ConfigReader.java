@@ -1,6 +1,7 @@
 package utils;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -12,7 +13,7 @@ public class ConfigReader {
             properties = new Properties();
             properties.load(file);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         return properties;
     }
